@@ -4,7 +4,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;;
+    flex-wrap: wrap;
+    overscroll-behavior-y: contain;
 }
 
 #canvas {
@@ -16,10 +17,6 @@ body {
     display: grid;
     box-shadow: 3px 3px 20px black;
     user-select: none;
-
-    grid-template-columns: repeat(20, 1fr);
-    grid-template-rows: repeat(20, 1fr);
-
     border: 1px solid;
 }
 
@@ -55,7 +52,7 @@ body {
 
 button, input, label {
     height: 8vmin;
-    width: 24vmin;
+    width: 30vmin;
     font-size: 2em;
     font-family: "Arial", sans-serif;
 }
