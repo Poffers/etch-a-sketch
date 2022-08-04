@@ -7,12 +7,14 @@
     </head>
 
     <body>
-        <div class="canvas"></div>
-        <div class="buttons">
+        <div id="canvas"></div>
+        <div id="settings">
             <input type="color" id="color-picker" value="#000000">
             <button id="button-brush" class="active">Brush</button>
             <button id="button-eraser">Eraser</button>
             <button id="button-clear">Clear</button>
+            <input type="range" id="size-slider" min="4" max="64" step="4" value="16">
+            <label for="size-slider" id="size-label">16 x 16</label>
         </div>
         <script src="script.js"></script>
     </body>

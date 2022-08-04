@@ -4,11 +4,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: wrap;;
 }
 
-.canvas {
+#canvas {
     background-color: white;
     height: 90vmin;
     width: 90vmin;
@@ -22,25 +21,35 @@ body {
     grid-template-rows: repeat(20, 1fr);
 
     border: 1px solid;
-
 }
 
-div {
+.cell {
     margin: -1px;
     padding: 1px;
+}
+
+#settings {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#size-slider {
+    margin: -0.5em 0;
+}
+
+#size-label {
+    text-align: center;
+    margin-top: -0.5em;
 }
 
 .active {
     border: 5px solid;
 }
 
-.buttons {
-    display: flex;
-    gap: 2rem;
-}
-
-button, input {
+button, input, label {
     height: 8vmin;
-    width: 16vmin;
+    width: 24vmin;
     font-size: 2em;
+    font-family: "Arial", sans-serif;
 }
