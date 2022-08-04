@@ -1,11 +1,13 @@
-body {
+html,body {
     background-color: gainsboro;
     height: 100%;
+    margin: 0;
+    padding: 0;
+    overscroll-behavior-y: contain;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    overscroll-behavior-y: contain;
 }
 
 #canvas {
@@ -47,11 +49,11 @@ body {
 }
 
 .active {
-    border: 5px solid;
+    border: 7px solid;
 }
 
 button, input, label {
-    height: 8vmin;
+    height: 9vmin;
     width: 30vmin;
     font-size: 2em;
     font-family: "Arial", sans-serif;

@@ -1,5 +1,5 @@
 let mouseDown = false;
-let erasing = false;
+let mode = "brush";
 
 function resetSquares(size) {
     document.body.removeChild(document.getElementById("canvas"));
@@ -40,15 +40,24 @@ function createButtonListeners() {
     });
     
     document.getElementById("button-brush").addEventListener("click", e => {
-        erasing = false;
+        mode = "brush";
         e.target.classList.add("active");
         document.getElementById("button-eraser").classList.remove("active");
+        document.getElementById("button-rainbow").classList.remove("active");
     });
     
     document.getElementById("button-eraser").addEventListener("click", e => {
-        erasing = true;
+        mode = "erase"
         e.target.classList.add("active");
         document.getElementById("button-brush").classList.remove("active");
+        document.getElementById("button-rainbow").classList.remove("active");
+    });
+
+    document.getElementById("button-rainbow").addEventListener("click", e => {
+        mode = "rainbow";
+        e.target.classList.add("active");
+        document.getElementById("button-brush").classList.remove("active");
+        document.getElementById("button-eraser").classList.remove("active");
     });
 
     document.getElementById("button-lines").addEventListener("click", e => {
@@ -83,10 +92,15 @@ function createDrawListeners() {
 }
 
 function colorBox(div) {
-    if (!erasing) {
+    if (mode == "brush") {
         div.style.backgroundColor = document.getElementById("color-picker").value;
-    } else {
+    } else if (mode == "erase") {
         div.style.backgroundColor = "#ffffff";
+    } else if (mode == "rainbow") {
+        let r = Math.floor(Math.random() * 256);
+        let g = Math.floor(Math.random() * 256);
+        let b = Math.floor(Math.random() * 256);
+        div.style.backgroundColor =  `rgb(${r}, ${g}, ${b})`;
     }
 }
 
