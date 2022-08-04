@@ -25,6 +25,11 @@ body {
 
 }
 
+div {
+    margin: -1px;
+    padding: 1px;
+}
+
 .active {
     border: 5px solid;
 }
