@@ -9,10 +9,14 @@ function resetSquares(size) {
     canvas.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     canvas.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
+    gridEnabled = document.getElementById("button-lines").classList == "active";
     for (let i = 1; i <= size * size; i++) {
         const div = document.createElement("div");
         div.classList.add("cell");
-        div.style.color = "#ffffff";
+        if (gridEnabled) {
+            div.classList.add("lines");
+        }
+        div.style.backgroundColor = "#ffffff";
         canvas.appendChild(div);
     }
 
@@ -35,17 +39,28 @@ function createButtonListeners() {
         createDrawListeners();
     });
     
-    document.getElementById("button-brush").addEventListener("click", () => {
+    document.getElementById("button-brush").addEventListener("click", e => {
         erasing = false;
-        document.getElementById("button-brush").classList.add("active");
+        e.target.classList.add("active");
         document.getElementById("button-eraser").classList.remove("active");
     });
     
-    document.getElementById("button-eraser").addEventListener("click", () => {
+    document.getElementById("button-eraser").addEventListener("click", e => {
         erasing = true;
-        document.getElementById("button-eraser").classList.add("active");
+        e.target.classList.add("active");
         document.getElementById("button-brush").classList.remove("active");
     });
+
+    document.getElementById("button-lines").addEventListener("click", e => {
+        e.target.classList.toggle("active");
+        toggleGridLines();
+    });
+
+}
+
+function toggleGridLines() {
+    let canvas = document.getElementById("canvas");
+    Array.from(canvas.children).forEach(child => child.classList.toggle("lines"));
 }
 
 function createDrawListeners() {
@@ -60,7 +75,7 @@ function createDrawListeners() {
     document.querySelector(".cell").addEventListener("touchstart", e => colorBox(e.target));
     document.getElementById("canvas").addEventListener("touchmove", e => {
         const touchedElement = document.elementFromPoint(e.touches[0].clientX, e.touches[0].clientY);
-        if (touchedElement && touchedElement.className === "cell") {
+        if (touchedElement && touchedElement.className.includes("cell")) {
             colorBox(touchedElement);
         }
     });

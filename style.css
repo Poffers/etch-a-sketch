@@ -25,7 +25,13 @@ body {
 
 .cell {
     margin: -1px;
-    padding: 1px;
+    padding: 0;
+    outline: none
+}
+
+.lines {
+    border: 1px solid;
+    border-color: lightslategray;
 }
 
 #settings {
