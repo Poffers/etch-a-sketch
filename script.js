@@ -38,12 +38,12 @@ function colorBox(div) {
 document.body.addEventListener("mousedown", () => mouseDown = true);
 document.body.addEventListener("mouseup", () => mouseDown = false);
 document.querySelector(".canvas").addEventListener("touchmove", e => {
-    console.log(e)
     const touchedElement = document.elementFromPoint(e.touches[0].clientX, e.touches[0].clientY);
     if (touchedElement && touchedElement.className === "cell") {
         colorBox(touchedElement);
     }
 });
+document.querySelector(".canvas").addEventListener("touchstart", e => colorBox(e.target));
 
 resetSquares();
 createDrawListeners();
