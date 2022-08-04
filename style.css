@@ -10,8 +10,8 @@ body {
 
 .canvas {
     background-color: white;
-    height: 80vmin;
-    width: 80vmin;
+    height: 90vmin;
+    width: 90vmin;
     padding: 0;
     margin: 4vmin;
     display: grid;
