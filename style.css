@@ -1,0 +1,41 @@
+body {
+    background-color: gainsboro;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.canvas {
+    background-color: white;
+    height: 80vmin;
+    width: 80vmin;
+    padding: 0;
+    margin: 4vmin;
+    display: grid;
+    box-shadow: 3px 3px 20px black;
+    user-select: none;
+
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+
+    border: 1px solid;
+
+}
+
+.active {
+    border: 5px solid;
+}
+
+.buttons {
+    display: flex;
+    gap: 2rem;
+}
+
+button, input {
+    height: 8vmin;
+    width: 16vmin;
+    font-size: 2em;
+}
