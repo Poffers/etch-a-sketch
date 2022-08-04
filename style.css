@@ -9,10 +9,10 @@ body {
 
 #canvas {
     background-color: white;
-    height: 90vmin;
-    width: 90vmin;
+    height: 94vmin;
+    width: 94vmin;
     padding: 0;
-    margin: 4vmin;
+    margin: 3vmin;
     display: grid;
     box-shadow: 3px 3px 20px black;
     user-select: none;
