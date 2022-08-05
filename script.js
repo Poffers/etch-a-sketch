@@ -33,6 +33,15 @@ function createSliderListeners() {
     });
 }
 
+function saveCanvas(canvas) {
+    const link = document.createElement("a");
+    link.href = canvas;
+    link.download = "art.png";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
 function createButtonListeners() {
     document.getElementById("button-clear").addEventListener("click", () => {
         resetSquares(parseInt(document.getElementById("size-slider").value));
@@ -64,6 +73,20 @@ function createButtonListeners() {
         e.target.classList.toggle("active");
         toggleGridLines();
     });
+
+    document.getElementById("button-download").addEventListener("click", e => {
+        if (document.getElementById("button-lines").classList == "active") {
+            toggleGridLines();
+            html2canvas(document.getElementById("canvas")).then(canvas => {
+                saveCanvas(canvas.toDataURL());
+            });
+            toggleGridLines();
+        } else {
+            html2canvas(document.getElementById("canvas")).then(canvas => {
+                saveCanvas(canvas.toDataURL());
+            });
+        }
+    })
 
 }
 
