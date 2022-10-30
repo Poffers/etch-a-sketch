@@ -1,2 +1,3 @@
-# etch-a-sketch
-Assignment from The Odin Project
+# [Live Demo](https://aaluzzi.github.io/pixely/)
+
+
